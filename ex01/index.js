@@ -15,5 +15,5 @@ const mostraResultado = (num1, num2) => {
   console.log(`Divisão entre ${num1} e ${num2}:`, divide(num1, num2));
 };
 
-// Exemplo de uso
+// Exemplo de uso, chamando mostra resultado
 mostraResultado(10, 2);
