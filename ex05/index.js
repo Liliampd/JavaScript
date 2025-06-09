@@ -1,41 +1,27 @@
-function calcularTempoRestante(dataFutura) {
-  const agora = new Date();
-  const diferenca = dataFutura - agora;
+// Criar a função que calcula o tempo restante, e recebe uma data futura.
 
-  if (diferenca <= 0) {
+const calcularTempoRestante =(DataFutura) => {
+    const agora = new Date().getTime()
+    const diferencaDeDatas = DataFutura - agora;
+    
+    const segundosDeUmMinuto = 60 * 1000;
+    const segundosDeUmaHora = 60 * segundosDeUmMinuto;
+    const segundosDoDia = 24 * segundosDeUmaHora;
+
+    const dias = Math.floor(diferencadedatas / segundosDoDia);
+    const horas = Math.floor((diferencaDeDatas / segundosDoDia) / segundosDeUmaHora);
+    const minutos = Math.floor((diferencaDeDatas% segundosDeUmaHora) / segundosDeUmMinuto);
+    const segundos = Math.floor((diferencaDeDatas % segundosDeUmMinuto) / 1000);
+
     return {
-      dias: 0,
-      horas: 0,
-      minutos: 0,
-      segundos: 0
-    };
-  }
-
-  const segundosTotais = Math.floor(diferenca / 1000);
-  const dias = Math.floor(segundosTotais / (3600 * 24));
-  const horas = Math.floor((segundosTotais % (3600 * 24)) / 3600);
-  const minutos = Math.floor((segundosTotais % 3600) / 60);
-  const segundos = segundosTotais % 60;
-
-  return {
-    dias,
-    horas,
-    minutos,
-    segundos
-  };
+        dias,
+        horas,
+        minutos,
+        segundos
+    }
 }
+const dataFutura = new Date ('2024-11-30T12:00:00').getTime();
+console.log(calcularTempoRestante(dataFutura));
 
-function atualizarTemporizador() {
-  const dataFutura = new Date('2025-12-31T23:59:59');
-  const tempoRestante = calcularTempoRestante(dataFutura);
 
-  console.log(
-    `${tempoRestante.dias} dias, ` +
-    `${tempoRestante.horas} horas, ` +
-    `${tempoRestante.minutos} minutos, ` +
-    `${tempoRestante.segundos} segundos`
-  );
-}
-
-setInterval(atualizarTemporizador, 1000);
-atualizarTemporizador();
+// Criar uma função que atualliza o temporizador.
