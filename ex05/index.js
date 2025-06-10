@@ -20,8 +20,22 @@ const calcularTempoRestante = (dataFutura) => {
         segundos
     }
 }
-const dataFutura = new Date ('2024-11-30T12:00:00').getTime();
-console.log(calcularTempoRestante(dataFutura));
+const dataFutura = new Date('2025-12-31T23:59:50').getTime();
+//console.log(calcularTempoRestante(dataFutura));
 
 
 // Criar uma função que atualliza o temporizador.
+
+const atualizarTemporizador = () => { new Date('2025-12-31T12:00:00').getTime();
+const tempoRestante = calcularTempoRestante(dataFutura);
+
+document.getElementById('dias').innerText = `Dias ${tempoRestante.dias}`;
+document.getElementById('horas').innerText = `Horas ${tempoRestante.horas}`;
+document.getElementById('minutos').innerText = `Minutos ${tempoRestante.minutos}`;
+document.getElementById('segundos').innerText = `Segundos ${tempoRestante.segundos}`;
+
+const intervalo = setInterval(atualizarTemporizador, 1000);
+
+}
+const intervalo = setInterval(atualizarTemporizador, 1000);
+//atualizarTemporizador();
