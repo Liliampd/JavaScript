@@ -1,15 +1,13 @@
-// Recupera as tarefas do localStorage (se existirem)
 let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
 
-// Exibe a lista ao carregar a página
 exibirTarefas();
 
-// Função para salvar as tarefas no localStorage
+
 function salvarTarefas() {
     localStorage.setItem('tarefas', JSON.stringify(tarefas));
 }
 
-// Adicionar nova tarefa
+
 function adicionarTarefa() {
     const inputDescricao = document.getElementById('descricao');
     const descricao = inputDescricao.value.trim();
@@ -28,21 +26,21 @@ function adicionarTarefa() {
     }
 }
 
-// Alternar status da tarefa
+
 function alternarStatus(indice) {
     tarefas[indice].status = !tarefas[indice].status;
     salvarTarefas();
     exibirTarefas();
 }
 
-// Excluir uma tarefa
+
 function excluirTarefa(indice) {
     tarefas.splice(indice, 1);
     salvarTarefas();
     exibirTarefas();
 }
 
-// Exibir a lista de tarefas
+
 function exibirTarefas() {
     const divLista = document.getElementById('lista-tarefas');
     divLista.innerHTML = "";

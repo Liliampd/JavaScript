@@ -3,7 +3,7 @@ document.getElementById('searchButton').addEventListener('click', function() {
     const userList = document.getElementById('userList');
     const message = document.getElementById('message');
 
-    // Limpa resultados anteriores
+    
     userList.innerHTML = '';
     message.textContent = '';
 
